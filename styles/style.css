@@ -325,18 +325,6 @@ hr{
     font-family: var(--font-textBold);
     font-size: 3em;
     width: 50%;
-
-    position: relative;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.title::after {
-    content: "PROYECTOS";
-    position: absolute;
-    color: var(--bg-icon-color-hover)    ;
-    font-size: 1em;
-    left: 100%;
-    animation: slide 10s linear infinite;
 }
 
 @keyframes slide {
@@ -487,26 +475,9 @@ img {
     color: var(--primary-color);
     width: 50%;
 
-    position: relative;
-    overflow: hidden;
-    white-space: nowrap;
 }
-.contact-section h2::after {
-    content: "HOLA MUNDO";
-    position: absolute;
-    color: var(--bg-icon-color-hover)    ;
-    font-size: 1em;
-    left: 100%;
-    animation: slide 10s linear infinite;
-}
-.about-div h2::after {
-    content: "SOBRE MI";
-    position: absolute;
-    color: var(--bg-icon-color-hover)  ;
-    font-size: 1em;
-    left: 100%;
-    animation: slide 10s linear infinite;
-}
+
+
 .contact-section--email {
     display: flex;
     flex-direction: column;
@@ -539,27 +510,8 @@ img {
     font-family: var(--font-textBold);
     color: var(--primary-color);
     width: 50%;
+}
 
-    position: relative;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.section-certificates h2::after {
-    content: "CERTIFICADOS";
-    position: absolute;
-    color: var(--bg-icon-color-hover)  ;
-    font-size: 1em;
-    left: 100%;
-    animation: slide 10s linear infinite;
-}
-.section-habilities h2::after {
-    content: "HABILIDADES";
-    position: absolute;
-    color: var(--bg-icon-color-hover)  ;
-    font-size: 1em;
-    left: 100%;
-    animation: slide 10s linear infinite;
-}
 .carousel{
     width: 500px;
     height: 400px;
