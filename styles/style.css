@@ -336,7 +336,7 @@ hr{
     color: var(--bg-icon-color-hover)    ;
     font-size: 1em;
     left: 100%;
-    animation: slide 6s linear infinite;
+    animation: slide 10s linear infinite;
 }
 
 @keyframes slide {
@@ -360,6 +360,7 @@ hr{
     gap: 1.5em;
     border-radius: 10px;
     text-align: center;
+    align-items: center;
     background-color: var(--bg-color);
     max-width: 90%;
     border: 0.5px solid var(--primary-color);
@@ -373,7 +374,7 @@ img {
     border-radius: 8px;
     object-fit: cover;
     margin-top: 1em;
-    
+
 }
 
 .div-proyect {
@@ -384,6 +385,7 @@ img {
 
 .div-skills {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 0.5em;
 }
@@ -393,6 +395,7 @@ img {
     color: white;
     border-radius: 0.5em;
     padding: 0.2em 0.5em;
+    margin: 5px 0px;
 
 }
 
@@ -494,7 +497,7 @@ img {
     color: var(--bg-icon-color-hover)    ;
     font-size: 1em;
     left: 100%;
-    animation: slide 4s linear infinite;
+    animation: slide 10s linear infinite;
 }
 .about-div h2::after {
     content: "SOBRE MI";
@@ -502,7 +505,7 @@ img {
     color: var(--bg-icon-color-hover)  ;
     font-size: 1em;
     left: 100%;
-    animation: slide 4s linear infinite;
+    animation: slide 10s linear infinite;
 }
 .contact-section--email {
     display: flex;
@@ -547,7 +550,7 @@ img {
     color: var(--bg-icon-color-hover)  ;
     font-size: 1em;
     left: 100%;
-    animation: slide 4s linear infinite;
+    animation: slide 10s linear infinite;
 }
 .section-habilities h2::after {
     content: "HABILIDADES";
@@ -555,7 +558,7 @@ img {
     color: var(--bg-icon-color-hover)  ;
     font-size: 1em;
     left: 100%;
-    animation: slide 4s linear infinite;
+    animation: slide 10s linear infinite;
 }
 .carousel{
     width: 500px;
@@ -577,15 +580,15 @@ img {
 .habilidades-div{
     background-color: #dfc6ef;
     border: 1px solid var(--primary-color);
-    padding: 1em;
+    padding: 0.5em;
     border-radius: 0.5em;
-    width: 10rem;
+    width: 9rem;
 }
 .habilidades-div img{
-    width: 8rem;
-    height: 8rem;
-
+    width: 7rem;
+    max-height: 8rem;
 }
+
 .habilidades-div p{
     margin: 0.5em 0em;
     font-weight: bold;
@@ -625,7 +628,7 @@ footer {
 }
 
 @media screen and (max-width: 1024px) {
-    
+
     .toggle-theme__text {
         font-size: 0.5em;
     }
@@ -709,7 +712,7 @@ footer {
         display: block;
         /* Mostrar elementos con clase rowPadre */
     }
-    
+
     .work-section {
         padding: 0px;
 
@@ -785,7 +788,7 @@ footer {
     .grid-proyects, .about-section, .section-habilities, .section-certificates, .header{
         padding: 1em 0em;
     }
-    
+
 }
 @media screen and (max-width: 320px) {
     .name{
