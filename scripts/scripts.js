@@ -43,7 +43,7 @@ window.addEventListener("scroll", () => {
 // funcion de animacion de tipeo
 document.addEventListener("DOMContentLoaded", function () {
   const text =
-    " Soy una apasionada del conocimiento, siempre en busca de aprender y crecer en dos áreas que me fascinan: la lógica de la programación y las inversiones.";
+    " Soy una desarrolladora Full Stack especializada en JavaScript, TypeScript, Node.js, React, NestJS, PostgreSQL y MongoDB. Me apasiona crear APIs escalables, optimizar bases de datos y desarrollar interfaces interactivas.";
   const animatedText = document.getElementById("animated-text");
   let index = 0;
 
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // funcion de animacion de tipeo en EN
 document.addEventListener("DOMContentLoaded", function () {
   const text =
-    " I am passionate about knowledge, always seeking to learn and grow in two areas that fascinate me: the logic of programming and investments."
+    " I am a Full Stack developer specialized in JavaScript, TypeScript, Node.js, React, NestJS, PostgreSQL and MongoDB. I am passionate about creating scalable APIs, optimizing databases and developing interactive interfaces."
   const animatedText = document.getElementById("animated-text-en");
   let index = 0;
 
