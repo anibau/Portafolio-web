@@ -165,8 +165,13 @@ header {
     color: var(--primary-color);
     padding: 0em 1em;
 }
-.idiomas a:hover{
+.icon_idioma{
+    fill: var(--primary-color);
+    padding: 3px;
+}
+.idiomas a:hover, .icon_idioma:hover{
     color: var(--bg-icon-color-hover);
+    fill: var(--bg-icon-color-hover);
 }
 
 .colors__item {
@@ -650,7 +655,9 @@ footer {
 }
 
 @media screen and (max-width: 425px) {
-
+    .icon_idioma{
+        display: none;
+    }
     .columnPadre {
         --cuadrado: 1.5em;
         display: none;
