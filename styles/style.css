@@ -3,6 +3,7 @@
     --bg-color:  hsl(292, 44%, 93%);
     --bg-icon-color-hover: hsl(291, 47%, 60%);
     --bg-span-color: hsl(280, 100%, 50%);
+    
 
     --transicion: color 0.5s, background-color 0.2s ease-in-out;
     --cuadrado: 3.5em;
@@ -339,85 +340,542 @@ hr{
 
 
 .grid-proyects {
-    gap: 2.3em;
+    gap: 3em;
     padding: 3em 0em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .proyects {
-    display: flex;
-    padding: 1em;
-    gap: 1.5em;
-    border-radius: 10px;
-    text-align: center;
-    align-items: center;
-    background-color: var(--bg-color);
-    max-width: 90%;
-    border: 0.5px solid var(--primary-color);
-    box-shadow: 10px 10px 5px 0px var(--primary-color);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    padding: 2.5em;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--bg-color) 0%, rgba(255, 255, 255, 0.1) 100%);
+    max-width: 100%;
+    width: 95%;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 20px 40px rgba(106, 27, 154, 0.15);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-img {
-    width: 350px;
-    height: auto;
-    max-height: 300px;
-    border-radius: 8px;
-    object-fit: cover;
-    margin-top: 1em;
-
+.proyects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--bg-icon-color-hover));
 }
 
-.div-proyect {
+.proyects:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(106, 27, 154, 0.25);
+    border-color: var(--bg-icon-color-hover);
+}
+
+/* Contenedor de media (video/imagen) */
+.project-media-container {
+    grid-column: 1;
     display: flex;
     flex-direction: column;
-    margin-top: 1em;
+    gap: 1em;
 }
 
+/* Contenedor de información del proyecto */
+.project-info-container {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    justify-content: space-between;
+}
+
+/* Estilos mejorados para videos de proyectos */
+.project-media {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 15px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--bg-icon-color-hover) 100%);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 1em;
+}
+
+.project-media:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.project-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+}
+
+.project-media:hover .project-video {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+}
+
+/* Overlay mejorado con mejor UX */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(49, 41, 54, 0.8) 0%, 
+        rgba(170, 166, 171, 0.9) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+}
+
+.video-overlay.playing {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.video-overlay i {
+    color: white;
+    font-size: 64px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.video-overlay:hover i {
+    transform: scale(1.1);
+}
+
+.video-overlay .play-text {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Controles de video personalizados */
+.video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 20px 15px 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 0 0 15px 15px;
+}
+
+.project-media:hover .video-controls,
+.project-media.playing .video-controls {
+    opacity: 1;
+}
+
+.control-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--primary-color);
+}
+
+.control-btn:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+.control-btn i {
+    font-size: 20px;
+}
+
+/* Indicador de carga */
+.video-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 28px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Fallback para cuando el video no carga */
+.video-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--bg-icon-color-hover) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.video-fallback i {
+    font-size: 64px;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.video-fallback p {
+    font-size: 16px;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Estados de error */
+.video-error {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.video-error .video-fallback i {
+    color: #fff;
+}
+
+/* Indicador de progreso */
+.video-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 0 0 15px 15px;
+    overflow: hidden;
+}
+
+.video-progress-bar {
+    height: 100%;
+    background: var(--primary-color);
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* Estilos para métricas de proyectos */
+.project-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--bg-icon-color-hover) 100%);
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 8px 20px rgba(106, 27, 154, 0.2);
+}
+
+.metric {
+    text-align: center;
+    padding: 1em;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.metric:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.metric .number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.metric .label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* Estilos para skills */
 .div-skills {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 0.5em;
+    justify-content: center;
+    gap: 0.8em;
+    margin-bottom: 1em;
+    padding: 1em;
+    background: rgba(106, 27, 154, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(106, 27, 154, 0.1);
 }
 
 .div-skills span {
-    background-color: var(--bg-span-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--bg-icon-color-hover) 100%);
     color: white;
-    border-radius: 0.5em;
-    padding: 0.2em 0.5em;
-    margin: 5px 0px;
+    border-radius: 20px;
+    padding: 0.5em 1em;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(106, 27, 154, 0.2);
+}
 
+.div-skills span:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(106, 27, 154, 0.3);
+}
+
+/* Estilos para descripción */
+.div-description {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .div-description h4 {
-    font-size: 2em;
+    font-size: 2.2em;
     color: var(--primary-color);
     font-family: var(--font-textBold);
-    margin: 1em 0em;
+    margin: 0 0 0.5em 0;
+    line-height: 1.2;
+    text-align: left;
 }
 
 .div-description p {
-    font-size: 1.125em;
-    line-height: 1.2em;
+    font-size: 0.9em;
+    line-height: 1.2;
     margin-bottom: 1em;
     text-align: justify;
+    color: var(--primary-color);
+    flex: 1;
+}
+
+/* Estilos para botones */
+.div-button {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    margin-top: auto;
 }
 
 .div-button a {
     text-decoration: none;
-    border-radius: 2px;
+    border-radius: 50px;
     color: var(--primary-color);
+    padding: 0.8em 1.5em;
+    background: linear-gradient(135deg, var(--bg-color) 0%, rgba(255, 255, 255, 0.8) 100%);
+    border: 2px solid var(--primary-color);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(106, 27, 154, 0.15);
 }
-.div-button a i{
-    font-size: 2.5em;
-    margin: 0.5em;
+
+.div-button a i {
+    font-size: 1.5em;
 }
-.div-button a:hover{
-    color: var(--bg-icon-color-hover);
+
+.div-button a:hover {
+    color: white;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--bg-icon-color-hover) 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(106, 27, 154, 0.3);
 }
+
+/* Responsive para el nuevo diseño */
+@media screen and (max-width: 1024px) {
+    .proyects {
+        grid-template-columns: 1fr;
+        gap: 2em;
+        padding: 2em;
+    }
+    
+    .project-media-container {
+        grid-column: 1;
+    }
+    
+    .project-info-container {
+        grid-column: 1;
+    }
+    
+    .project-media {
+        height: 350px;
+    }
+    
+    .project-metrics {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.8em;
+        padding: 1.2em;
+    }
+    
+    .metric .number {
+        font-size: 1.8rem;
+    }
+    
+    .metric .label {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .proyects {
+        width: 90%;
+        padding: 1.5em;
+        gap: 1.5em;
+    }
+    
+    .project-media {
+        height: 300px;
+    }
+    
+    .video-overlay i {
+        font-size: 48px;
+    }
+    
+    .video-overlay .play-text {
+        font-size: 14px;
+    }
+    
+    .control-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .control-btn i {
+        font-size: 18px;
+    }
+    
+    .project-metrics {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8em;
+        padding: 1em;
+    }
+    
+    .metric .number {
+        font-size: 1.6rem;
+    }
+    
+    .div-description h4 {
+        font-size: 1.8em;
+    }
+    
+    .div-description p {
+        font-size: 1em;
+    }
+    
+    .div-button {
+        flex-direction: column;
+        gap: 0.8em;
+    }
+    
+    .div-button a {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .proyects {
+        padding: 1em;
+        gap: 1em;
+    }
+    
+    .project-media {
+        height: 250px;
+    }
+    
+    .video-overlay i {
+        font-size: 40px;
+    }
+    
+    .video-overlay .play-text {
+        font-size: 12px;
+    }
+    
+    .control-buttons {
+        gap: 10px;
+    }
+    
+    .control-btn {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .control-btn i {
+        font-size: 16px;
+    }
+    
+    .project-metrics {
+        grid-template-columns: 1fr;
+        gap: 0.8em;
+    }
+    
+    .metric .number {
+        font-size: 1.4rem;
+    }
+    
+    .metric .label {
+        font-size: 0.75rem;
+    }
+    
+    .div-description h4 {
+        font-size: 1.5em;
+    }
+    
+    .div-skills {
+        gap: 0.5em;
+    }
+    
+    .div-skills span {
+        font-size: 0.8rem;
+        padding: 0.4em 0.8em;
+    }
+}
+
 /* section about-contact */
 
 .about-section,
@@ -764,5 +1222,211 @@ footer {
         font-size: 1em;
         line-height: 1.2em;
         text-align: justify;
+    }
+}
+
+/* Call to Action Section - Estilos mejorados y responsive */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--bg-icon-color-hover) 100%);
+    border-radius: 20px;
+    padding: 3em 2em;
+    text-align: center;
+    margin: 2em auto;
+    max-width: 800px;
+    box-shadow: 0 15px 35px rgba(106, 27, 154, 0.2);
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0.05) 50%, 
+        rgba(255, 255, 255, 0.1) 100%);
+    pointer-events: none;
+}
+
+.cta-section h3 {
+    font-size: 2.5rem;
+    font-family: var(--font-textBold);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5em;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8em;
+    padding: 1em 2em;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    min-width: 200px;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background: white;
+    color: var(--primary-color);
+    border-color: white;
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: white;
+    border-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border-color: white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary i, .btn-secondary i {
+    font-size: 1.2em;
+}
+
+/* Responsive Design para CTA Section */
+@media screen and (max-width: 1024px) {
+    .cta-section {
+        padding: 2.5em 1.5em;
+        margin: 1.5em auto;
+    }
+    
+    .cta-section h3 {
+        font-size: 2.2rem;
+    }
+    
+    .cta-section p {
+        font-size: 1.1rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+        padding: 0.9em 1.8em;
+        font-size: 1rem;
+        min-width: 180px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cta-section {
+        padding: 2em 1.2em;
+        margin: 1em auto;
+        border-radius: 15px;
+    }
+    
+    .cta-section h3 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .cta-section p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1em;
+        align-items: center;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        padding: 0.8em 1.5em;
+        font-size: 0.95rem;
+        min-width: auto;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .cta-section {
+        padding: 1.5em 1em;
+        margin: 0.8em auto;
+    }
+    
+    .cta-section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .cta-section p {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+        line-height: 1.5;
+    }
+    
+    .btn-primary, .btn-secondary {
+        padding: 0.7em 1.2em;
+        font-size: 0.9rem;
+        gap: 0.6em;
+    }
+    
+    .btn-primary i, .btn-secondary i {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .cta-section {
+        padding: 1.2em 0.8em;
+    }
+    
+    .cta-section h3 {
+        font-size: 1.3rem;
+    }
+    
+    .cta-section p {
+        font-size: 0.85rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+        padding: 0.6em 1em;
+        font-size: 0.85rem;
     }
 }
