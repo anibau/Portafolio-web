@@ -1,43 +1,155 @@
-const toggleTheme = document.getElementById("toggle-theme");
-const toggleIcon = document.getElementById("toggle-icon");
-const toggleText = document.getElementById("toggle-text");
-const toggleColors = document.getElementById("toggle-colors");
+const menuToggle = document.getElementById("menuToggle");
+const menuDropdown = document.getElementById("menuDropdown");
+const themeSwitch = document.getElementById("themeSwitch");
+const colorBtns = document.querySelectorAll(".color-btn");
+const languageBtns = document.querySelectorAll(".language-btn");
 const rootStyle = document.documentElement.style;
 const buttontoBack = document.getElementById("backToTopButton");
 
-//funcion de dark mode
-const themeMode = () => {
-  document.body.classList.toggle("dark");
-  if (toggleIcon.src.includes("moon.svg")) {
-    toggleIcon.src = "assets/sun.svg";
-    toggleText.textContent = "Ligth Mode";
-    toggleColors.style.display = "none";
-  } else {
-    toggleIcon.src = "assets/moon.svg";
-    toggleText.textContent = "Dark Mode";
-    toggleColors.style.display = "flex";
-  }
+// Función para manejar el menú desplegable
+const toggleMenu = () => {
+  menuDropdown.classList.toggle("active");
+  menuToggle.classList.toggle("active");
 };
 
-toggleTheme.addEventListener("click", themeMode);
-
-// funcion de cambio de colores de fuente
-toggleColors.addEventListener("click", (e) => {
-  if (e.target.dataset.color) {
-    rootStyle.setProperty("--primary-color", e.target.dataset.color);
-    rootStyle.setProperty("--bg-color", e.target.dataset.bgColor);
-    rootStyle.setProperty("--bg-icon-color-hover", e.target.dataset.iconHover);
-    rootStyle.setProperty("--bg-span-color", e.target.dataset.spanColor);
+// Cerrar menú al hacer clic fuera
+document.addEventListener("click", (e) => {
+  if (!menuToggle.contains(e.target) && !menuDropdown.contains(e.target)) {
+    menuDropdown.classList.remove("active");
+    menuToggle.classList.remove("active");
   }
 });
 
-// funcion de flecha de regreso
+// Función de dark mode
+const themeMode = () => {
+  document.body.classList.toggle("dark");
+  themeSwitch.classList.toggle("active");
+  
+  // Guardar preferencia en localStorage
+  const isDark = document.body.classList.contains("dark");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+};
+
+// Función auxiliar para convertir hex a rgb
+const hexToRgb = (hex) => {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? 
+    `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}` : 
+    '128, 0, 128';
+};
+
+
+const changeColor = (e) => {
+  const btn = e.target.closest(".color-btn");
+  if (!btn) return;
+
+  colorBtns.forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+
+  const { color, bgColor, iconHover, spanColor } = btn.dataset;
+
+  // Aplicar colores principales
+  rootStyle.setProperty("--primary-color", color);
+  rootStyle.setProperty("--bg-color", bgColor);
+  rootStyle.setProperty("--bg-icon-hover-color", iconHover);
+  rootStyle.setProperty("--bg-span-color", spanColor);
+
+  // Aplicar colores derivados y de texto
+  rootStyle.setProperty("--secondary-color", iconHover);
+  rootStyle.setProperty("--accent-color", bgColor);
+  rootStyle.setProperty("--accent-light", bgColor);
+  rootStyle.setProperty("--accent-soft", bgColor);
+  rootStyle.setProperty("--text-color", iconHover);
+  rootStyle.setProperty("--text-light", color);
+  rootStyle.setProperty("--title-color", iconHover);
+  rootStyle.setProperty("--subtitle-color", color);
+  rootStyle.setProperty("--hover-color", iconHover);
+  rootStyle.setProperty("--icon-hover", color);
+  rootStyle.setProperty("--span-color", spanColor);
+
+  // Bordes y sombras derivados
+  rootStyle.setProperty("--border-color", `rgba(${hexToRgb(color)}, 0.2)`);
+  rootStyle.setProperty("--shadow-color", `rgba(${hexToRgb(iconHover)}, 0.15)`);
+
+  // Guardar preferencia
+  localStorage.setItem("colorTheme", color);
+};
+
+window.addEventListener("DOMContentLoaded", () => {
+  const savedColor = localStorage.getItem("colorTheme");
+  if (!savedColor) return;
+
+  const savedBtn = Array.from(colorBtns).find(btn => btn.dataset.color === savedColor);
+  if (savedBtn) savedBtn.click();
+});
+
+
+
+
+// Función para manejar idiomas
+const changeLanguage = (e) => {
+  const btn = e.target.closest(".language-btn");
+  if (!btn) return;
+  
+  // Remover clase active de todos los botones
+  languageBtns.forEach(btn => btn.classList.remove("active"));
+  
+  // Agregar clase active al botón clickeado
+  btn.classList.add("active");
+};
+
+// Event listeners
+menuToggle.addEventListener("click", toggleMenu);
+themeSwitch.addEventListener("click", themeMode);
+colorBtns.forEach(btn => btn.addEventListener("click", changeColor));
+languageBtns.forEach(btn => btn.addEventListener("click", changeLanguage));
+
+// Cargar preferencias guardadas
+document.addEventListener("DOMContentLoaded", () => {
+  // Cargar tema
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+    themeSwitch.classList.add("active");
+  }
+  
+  // Cargar color
+  const savedColor = localStorage.getItem("colorTheme");
+  if (savedColor) {
+    const activeBtn = Array.from(colorBtns).find(btn => btn.dataset.color === savedColor);
+    if (activeBtn) {
+      activeBtn.classList.add("active");
+      changeColor({ target: activeBtn });
+    }
+  }
+});
+
+// funcion de flecha de regreso mejorada
 window.addEventListener("scroll", () => {
   if (window.scrollY > 200) {
-    buttontoBack.style.display = "block";
+    buttontoBack.classList.add("show");
   } else {
-    buttontoBack.style.display = "none";
+    buttontoBack.classList.remove("show");
   }
+});
+
+// Función para scroll suave al hacer clic en el botón
+buttontoBack.addEventListener("click", (e) => {
+  e.preventDefault();
+  
+  // Añadir efecto de feedback visual
+  buttontoBack.style.transform = "scale(0.95)";
+  
+  // Scroll suave al inicio
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+  
+  // Restaurar el botón después de la animación
+  setTimeout(() => {
+    buttontoBack.style.transform = "";
+  }, 150);
 });
 
 // funcion de animacion de tipeo

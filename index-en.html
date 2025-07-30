@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ES">
 
 <head>
     <meta charset="UTF-8">
@@ -96,59 +96,80 @@
 </head>
 
 <body id="top">
-    <div class="columnPadre">
-        <div class="column">
-            <div class="cuadradoY"></div>
-        </div>
-    </div>
-    <div class="rowPadre">
-        <div class="row">
-            <div class="cuadradoX"></div>
-        </div>
-    </div>
+    <!-- Puntos decorativos que revotan por la pantalla -->
+    <div class="decorative-dot"></div>
+    <div class="decorative-dot"></div>
+    <div class="decorative-dot"></div>
+    <div class="decorative-dot"></div>
+    <div class="decorative-dot"></div>
+    <div class="decorative-dot"></div>
+    <div class="decorative-dot"></div>
+    <div class="decorative-dot"></div>
     <header class="header">
-        <div class="switches">
-            <div id="toggle-theme" class="toggle-theme">
-                <img id="toggle-icon" src="assets/moon.svg" alt="moon" class="toggle-theme__icon">
-                <p id="toggle-text" class="toggle-theme__text">Dark Mode</p>
+        <a href="#top" class="site-logo">MB</a>
+
+        <div class="header-menu">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="bi bi-gear-fill"></i>
+                <span>Options</span>
+            </button>
+
+            <div class="menu-dropdown" id="menuDropdown">
+                <!-- Sección de Idiomas -->
+                <div class="menu-section">
+                    <h4>Language</h4>
+                    <div class="language-selector">
+                        <a href="index.html" class="language-btn active">
+                            <span>ES</span>
+                            <svg width="16" height="16" viewBox="-5 -10 27.541857 21.191492">
+                                <path
+                                    d="m -4.8213596,10.36219 c 6.523312,-1.7438736 11.747551,-0.336365 18.2888626,0.554064 2.166548,0.294919 6.821652,0.724693 8.549268,-0.9754776 0.903905,-0.889543 0.366553,-3.873039 0.366553,-5.0652448 V -9.0697257 c -2.594078,0.383096 -4.846666,1.308355 -7.544156,1.122591 -4.234841,-0.291634 -8.3121046,-1.985456 -12.5735936,-2.036152 -1.65943499,-0.01974 -5.719218,-0.2000403 -6.851973,1.30287 -0.764572,1.014413 -0.234961,3.862839 -0.234961,5.097349 V 10.36219 M 13.924725,9.9049684 4.0944614,8.3046934 V -8.6125047 l 7.0869346,1.142172 2.508368,0.627798 0.234961,4.4025214 z" />
+                            </svg>
+                        </a>
+                        <a href="index-en.html" class="language-btn">
+                            <span>EN</span>
+                            <svg width="16" height="16" viewBox="0 0 1200 1200">
+                                <path d="m149.27 901.09 475.61-237.79v-41.652l-558.92 279.45z" />
+                                <path d="m190.96 901.09h340.75v-170.39z" />
+                                <path d="m718.02 901.09h340.79l-340.79-170.39z" />
+                                <path d="m1183.8 838.59v-123.79h-247.59z" />
+                                <path d="m1183.8 404.68-247.62 123.82h247.64z" />
+                                <path d="m513.1 677.52h55.895v223.57h111.77v-223.57h503.03v-111.77h-447.16z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sección de Colores -->
+                <div class="menu-section">
+                    <h4>Colors</h4>
+                    <div class="color-selector">
+                        <div class="color-btn active" data-color="#800080" data-bg-color="#FFDAB9"
+                            data-icon-hover="#4B0082" data-span-color="#4B0082"
+                            style="background: linear-gradient(135deg, #800080, #4B0082);"></div>
+                        <div class="color-btn" data-color="#4682B4" data-bg-color="#FAF0E6" data-icon-hover="#1E3F66"
+                            data-span-color="#1E3F66" style="background: linear-gradient(135deg, #4682B4, #1E3F66);">
+                        </div>
+                        <div class="color-btn" data-color="#6B8E23" data-bg-color="#F5F5DC" data-icon-hover="#556B2F"
+                            data-span-color="#556B2F" style="background: linear-gradient(135deg, #6B8E23, #556B2F);">
+                        </div>
+                        <div class="color-btn" data-color="#F08080" data-bg-color="#FFE4E1" data-icon-hover="#CD5C5C"
+                            data-span-color="#CD5C5C" style="background: linear-gradient(135deg, #F08080, #CD5C5C);">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección de Tema -->
+                <div class="menu-section">
+                    <h4>Mode</h4>
+                    <div class="theme-toggle">
+                        <span class="theme-toggle-label">Dark mode</span>
+                        <div class="theme-switch" id="themeSwitch">
+                            <img id="toggle-icon" src="assets/moon.svg" alt="moon" style="display: none;">
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="idiomas">
-            <a href="index.html"><span>ES</span><svg class="icon_idioma" width="30" height="30" version="1.1"
-                    viewBox="-5 -10 27.541857 21.191492" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:svg="http://www.w3.org/2000/svg">
-                    <path
-                        d="m -4.8213596,10.36219 c 6.523312,-1.7438736 11.747551,-0.336365 18.2888626,0.554064 2.166548,0.294919 6.821652,0.724693 8.549268,-0.9754776 0.903905,-0.889543 0.366553,-3.873039 0.366553,-5.0652448 V -9.0697257 c -2.594078,0.383096 -4.846666,1.308355 -7.544156,1.122591 -4.234841,-0.291634 -8.3121046,-1.985456 -12.5735936,-2.036152 -1.65943499,-0.01974 -5.719218,-0.2000403 -6.851973,1.30287 -0.764572,1.014413 -0.234961,3.862839 -0.234961,5.097349 V 10.36219 M 13.924725,9.9049684 4.0944614,8.3046934 V -8.6125047 l 7.0869346,1.142172 2.508368,0.627798 0.234961,4.4025214 z" />
-                </svg></a>
-            <a href="index-en.html"><span>EN</span><svg class="icon_idioma" width="40" height="35" version="1.1"
-                    viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
-                    <path d="m149.27 901.09 475.61-237.79v-41.652l-558.92 279.45z" />
-                    <path d="m190.96 901.09h340.75v-170.39z" />
-                    <path d="m718.02 901.09h340.79l-340.79-170.39z" />
-                    <path d="m1183.8 838.59v-123.79h-247.59z" />
-                    <path d="m1183.8 404.68-247.62 123.82h247.64z" />
-                    <path d="m513.1 677.52h55.895v223.57h111.77v-223.57h503.03v-111.77h-447.16z" />
-                    <path
-                        d="m16.211 298.89v303.66h410.54l0.003906-303.66zm339.72 40.633 4.7266 14.578h15.336l-12.406 9 4.7539 14.578-12.395-9-12.406 9 4.7539-14.578-12.395-9h15.312zm12.383 97.453-12.395-9.0117-12.406 9.0117 4.7539-14.566-12.395-9.0234h15.324l4.7383-14.578 4.7266 14.578h15.336l-12.406 9.0234zm0 58.906-12.395-9-12.406 9 4.7539-14.578-12.395-9h15.324l4.7383-14.578 4.7266 14.578h15.336l-12.406 9zm-33.277 28.574-12.383-9-12.395 9 4.7383-14.578-12.395-9.0234h15.312l4.7539-14.566 4.7383 14.566h15.312l-12.383 9.0234zm-34.68-28.574-12.395-9-12.395 9 4.7539-14.578-12.406-9h15.324l4.7383-14.578 4.7539 14.578h15.312l-12.383 9zm-33.984 28.574-12.395-9-12.406 9 4.7539-14.578-12.395-9.0234h15.324l4.7383-14.566 4.7266 14.566h15.324l-12.395 9zm-35.074-28.574-12.395-9-12.395 9 4.7539-14.578-12.406-9h15.324l4.7383-14.578 4.7383 14.578h15.336l-12.406 9zm-33.613 28.574-12.406-9-12.383 9 4.7383-14.578-12.395-9.0234h15.324l4.7266-14.566 4.7539 14.566h15.312l-12.395 9.0234zm-33.973-28.574-12.406-9-12.406 9 4.7539-14.578-12.395-9h15.336l4.7266-14.578 4.7383 14.578h15.324l-12.395 9zm-34.715 28.574-12.383-9-12.395 9 4.7383-14.578-12.395-9.0234h15.324l4.7383-14.566 4.7383 14.566h15.324l-12.395 9.0234zm-33.984-28.574-12.395-9-12.395 9 4.7383-14.578-12.406-9h15.336l4.7383-14.578 4.7539 14.578h15.324l-12.406 9zm-32.473-82.5h15.336l4.7383-14.578 4.7539 14.578h15.324l-12.406 9.0234 4.7383 14.566-12.395-9.0117-12.395 9.0117 4.7383-14.566zm272.5-6.3828-12.383-9-12.395 9 4.7383-14.578-12.395-9.0234h15.312l4.7539-14.555 4.7383 14.555h15.312l-12.383 9.0234zm0 58.344-12.383-9.0234-12.395 9.0234 4.7383-14.605-12.395-9h15.312l4.7539-14.578 4.7383 14.578h15.312l-12.383 9zm-27.023-51.961-12.383 9.0234 4.7266 14.566-12.395-9.0117-12.395 9.0117 4.7539-14.566-12.406-9.0234h15.324l4.7383-14.578 4.7539 14.578zm-41.641 51.961-12.395-9.0234-12.406 9.0234 4.7539-14.605-12.395-9h15.324l4.7383-14.578 4.7266 14.578h15.324l-12.395 9zm-4.75-72.91 4.7539 14.578-12.395-9-12.406 9 4.7539-14.578-12.395-9.0234h15.324l4.7383-14.555 4.7266 14.555h15.324zm-22.645 20.949-12.406 9.0234 4.7383 14.566-12.395-9.0117-12.395 9.0117 4.7539-14.566-12.406-9.0234h15.324l4.7383-14.578 4.7383 14.578zm-41.293 51.961-12.406-9.0234-12.383 9.0234 4.7383-14.605-12.395-9h15.324l4.7266-14.578 4.7539 14.578h15.312l-12.395 9zm-4.7383-72.91 4.7539 14.578-12.406-9-12.383 9 4.7383-14.578-12.395-9.0234h15.324l4.7266-14.555 4.7539 14.555h15.312zm-21.566 20.949-12.395 9.0234 4.7539 14.566-12.406-9.0117-12.422 9.0117 4.7539-14.566-12.395-9.0234h15.336l4.7266-14.578 4.7383 14.578zm-42.383 51.961-12.383-9.0234-12.395 9.0234 4.7383-14.605-12.395-9h15.324l4.7383-14.578 4.7383 14.578h15.324l-12.395 9zm-4.7266-71.16 4.7266 14.578-12.383-9-12.395 9 4.7383-14.578-12.395-9h15.324l4.7383-14.578 4.7383 14.578h15.324zm193.64-70.09 4.7539-14.566 4.7383 14.566h15.312l-12.383 9.0117 4.7266 14.566-12.383-9-12.395 9 4.7383-14.566-12.395-9.0117zm-29.949 15.43 4.7539 14.578h15.312l-12.383 9 4.7266 14.578-12.395-9-12.395 9 4.7539-14.578-12.406-9h15.324zm-38.727-15.43 4.7383-14.566 4.7266 14.566h15.324l-12.395 9.0117 4.7539 14.566-12.395-9-12.406 9 4.7539-14.566-12.395-9.0117zm-30.336 15.43 4.7383 14.578h15.336l-12.406 9 4.7383 14.578-12.395-9-12.395 9 4.7539-14.578-12.406-9h15.324zm-38.352-15.43 4.7266-14.566 4.7539 14.566h15.312l-12.395 9.0117 4.7539 14.566-12.406-9-12.383 9 4.7383-14.566-12.395-9.0117zm-29.242 15.43 4.7383 14.578h15.324l-12.395 9 4.7539 14.578-12.406-9-12.406 9 4.7539-14.578-12.395-9h15.336zm-39.434-15.43 4.7383-14.566 4.7383 14.566h15.324l-12.395 9.0117 4.7266 14.566-12.383-9-12.395 9 4.7383-14.566-12.395-9.0117zm-29.254 15.43 4.7539 14.578h15.324l-12.406 9 4.7383 14.578-12.395-9-12.395 9 4.7383-14.578-12.406-9h15.336zm-38.352-15.43 4.7383-14.566 4.7383 14.566h15.336l-12.406 9.0117 4.7383 14.566-12.395-9-12.395 9 4.7383-14.566-12.383-9.0117zm0 59.312 4.7383-14.555 4.7383 14.555h15.336l-12.406 9.0234 4.7383 14.578-12.395-9-12.395 9 4.7383-14.578-12.383-9.0234zm0 58.332 4.7383-14.578 4.7383 14.578h15.336l-12.406 9 4.7383 14.605-12.395-9.0234-12.418 9.0234 4.7383-14.605-12.383-9zm0 59.113 4.7383-14.566 4.7383 14.566h15.336l-12.418 9.0234 4.7383 14.578-12.395-9-12.395 9 4.7383-14.578-12.383-9.0234zm17.133 82.883-12.395-9.0117-12.406 9.0117 4.7383-14.594-12.383-8.9844h15.312l4.7383-14.594 4.7383 14.594h15.336l-12.406 8.9883zm21.219-39.082-12.395 9.0117 4.7383-14.578-12.406-9.0117h15.336l4.7383-14.566 4.7539 14.566h15.324l-12.406 9.0117 4.7383 14.578zm46.379 39.082-12.383-9.0117-12.395 9.0117 4.7383-14.594-12.422-8.9844h15.324l4.7383-14.594 4.7383 14.594h15.324l-12.395 8.9883zm22.309-39.082-12.406 9.0117 4.7539-14.578-12.395-9.0117h15.336l4.7266-14.566 4.7383 14.566h15.324l-12.395 9.0117 4.7539 14.578zm46.379 39.082-12.406-9.0117-12.383 9.0117 4.7383-14.594-12.395-8.9883h15.324l4.7266-14.594 4.7539 14.594h15.312l-12.395 8.9883zm21.215-40.148-12.395 9.0117 4.7539-14.578-12.406-9.0234h15.324l4.7383-14.566 4.7383 14.566h15.336l-12.406 9.0234 4.7383 14.578zm47.473 41.23-12.395-9.0117-12.406 9.0117 4.7539-14.594-12.395-9h15.324l4.7383-14.578 4.7266 14.578h15.324l-12.395 9zm21.59-40.164-12.395 9.0234 4.7539-14.594-12.406-9.0117h15.324l4.7383-14.566 4.7539 14.566h15.312l-12.383 9.0117 4.7266 14.594zm47.074 39.082-12.383-9.0117-12.395 9.0117 4.7383-14.594-12.395-8.9883h15.312l4.7539-14.594 4.7383 14.594h15.312l-12.383 8.9883zm20.895-39.082-12.406 9.0234 4.7539-14.594-12.395-9.0117h15.312l4.7539-14.566 4.7266 14.566h15.336l-12.406 9.0117 4.7539 14.594zm46.367 39.082-12.406-9.0117-12.406 9.0117 4.7539-14.594-12.395-8.9883h15.336l4.7266-14.594 4.7383 14.594h15.324l-12.395 8.9883zm-4.7539-73.859 4.7539 14.578-12.406-9-12.406 9 4.7539-14.578-12.395-9.0234h15.336l4.7266-14.566 4.7383 14.566h15.324zm0-59.137 4.7539 14.605-12.406-9.0234-12.406 9.0234 4.7539-14.605-12.395-9h15.336l4.7266-14.578 4.7383 14.578h15.324zm0-58.305 4.7539 14.578-12.406-9-12.406 9 4.7539-14.578-12.395-9.0234h15.336l4.7266-14.555 4.7383 14.555h15.324zm0-59.328 4.7539 14.566-12.406-9-12.406 9 4.7539-14.566-12.395-9.0117h15.336l4.7266-14.566 4.7383 14.566h15.324z" />
-                    <path d="m96.121 817.78h-79.91v39.957z" />
-                    <path d="m16.211 731.69v43.379h165.31l86.762-43.379z" />
-                    <path d="m16.211 645.6v43.391h337.46l86.773-43.391z" />
-                    <path d="m427.01 559.16v43.379h99.551l86.75-43.379z" />
-                    <path d="m426.95 471.07v43.395h275.78l86.762-43.395z" />
-                    <path d="m426.95 385v43.367h447.96l86.762-43.367z" />
-                    <path d="m1047.1 342.27 86.758-43.371h-706.92v43.371z" />
-                </svg>
-            </a>
-        </div>
-        <div id="toggle-colors" class="colors">
-            <div data-color="hsl(277, 70%, 35%)" data-bg-color="hsl(292, 44%, 93%)" data-icon-hover="hsl(291, 47%, 60%)"
-                data-span-color="hsl(280, 100%, 50%)" class="colors__item colors__item--primary"></div>
-            <div data-color="hsl(212, 80%, 42%)" data-bg-color="hsl(214, 44%, 93%)" data-icon-hover="hsl(210, 47%, 60%)"
-                data-span-color="hsl(219, 100%, 50%)" class="colors__item colors__item--blue"></div>
-            <div data-color="hsl(334, 79%, 38%)" data-bg-color="hsl(338, 44%, 93%)" data-icon-hover="hsl(334, 47%, 60%)"
-                data-span-color="hsl(330, 100%, 50%)" class="colors__item colors__item--purple"></div>
-            <div data-color="hsl(143, 42%, 25%)" data-bg-color="hsl(135, 44%, 93%)" data-icon-hover="hsl(138, 47%, 60%)"
-                data-span-color="hsl(137, 100%, 50%)" class="colors__item colors__item--green"></div>
         </div>
     </header>
     <main>
@@ -176,7 +197,9 @@
                     </div>
                     <div class="div-text">
                         <a href="#about">
-                            <p class="text" id="sobre-mi">ABOUT</p>
+                            <p class="text" id="sobre-mi">
+                                ABOUT ME
+                            </p>
                         </a>
                     </div>
                     <div class="div-text">
@@ -198,31 +221,33 @@
             </div>
         </section>
         <section id="work" class="work-section">
-            <h1 class="title title-en">PROYECTS</h1>
+            <h1 class="title">PROYECTS</h1>
             <div class="grid-proyects">
                 <div class="proyects">
                     <div>
-                        <div class="project-media-container">
+                        <div>
                             <div class="project-media" role="button" tabindex="0"
-                                aria-label="Play AI-Powered Content Creation Platform demo video">
+                                aria-label="Reproducir demo de Plataforma de Creación de Contenido con IA">
                                 <video autoplay muted loop playsinline class="project-video"
                                     poster="assets/appInspired.png" preload="metadata">
+                                    <source src="assets/videos/appInspired.webm" type="video/webm">
                                     <source src="assets/videos/appInspired.mp4" type="video/mp4">
                                     <img src="assets/appInspired.png" alt="App Inspired Screenshot">
                                 </video>
                                 <div class="video-overlay">
                                     <i class="bi bi-play-circle-fill" aria-hidden="true"></i>
-                                    <div class="play-text">Click to play demo</div>
+                                    <div class="play-text">Click to play demo
+                                    </div>
                                 </div>
                                 <div class="video-controls">
                                     <div class="control-buttons">
-                                        <button class="control-btn play-pause-btn" aria-label="Play/Pause video">
+                                        <button class="control-btn play-pause-btn" aria-label="Reproducir/Pausar video">
                                             <i class="bi bi-play-fill"></i>
                                         </button>
-                                        <button class="control-btn mute-btn" aria-label="Mute/Unmute video">
+                                        <button class="control-btn mute-btn" aria-label="Silenciar/Activar audio">
                                             <i class="bi bi-volume-mute-fill"></i>
                                         </button>
-                                        <button class="control-btn fullscreen-btn" aria-label="Fullscreen video">
+                                        <button class="control-btn fullscreen-btn" aria-label="Pantalla completa">
                                             <i class="bi bi-fullscreen"></i>
                                         </button>
                                     </div>
@@ -235,24 +260,26 @@
                                 </div>
                                 <div class="video-fallback" style="display: none;">
                                     <i class="bi bi-image"></i>
-                                    <p>Video not available<br>Click to view screenshot</p>
+                                    <p>Video not available
+                                        <br>Click to see screenshot
+                                    </p>
                                 </div>
                             </div>
                         </div>
                         <div class="div-button">
-                            <a href="https://github.com/anibau/MVP-IA" target="_blank"> <i
-                                    class="bi bi-github"></i>View Code</a>
+                            <a href="https://github.com/anibau/MVP-IA" target="_blank"> <i class="bi bi-github"></i>See Code
+                            </a>
                         </div>
                     </div>
                     <div class="project-info-container">
                         <div class="project-metrics">
                             <div class="metric">
-                                <span class="number">AI</span>
+                                <span class="number">IA</span>
                                 <span class="label">Powered</span>
                             </div>
                             <div class="metric">
                                 <span class="number">MISTRAL</span>
-                                <span class="label">AI Model</span>
+                                <span class="label">IA Model</span>
                             </div>
                             <div class="metric">
                                 <span class="number">Few-shot</span>
@@ -261,7 +288,6 @@
                         </div>
                         <div class="div-skills">
                             <span>REACT</span>
-                            <span>NODE</span>
                             <span>TYPESCRIPT</span>
                             <span>NESTJS</span>
                             <span>MISTRAL AI</span>
@@ -277,52 +303,24 @@
                 </div>
                 <div class="proyects">
                     <div>
-                        <div class="project-media-container">
-                            <div class="project-media" role="button" tabindex="0"
-                                aria-label="Play Mobile Equipment Repair Management System demo video">
-                                <video autoplay muted loop playsinline class="project-video" poster="./assets/CEM.png"
-                                    preload="metadata">
-                                    <source src="assets/videos/CEM.webm" type="video/webm">
-                                    <source src="assets/videos/CEM.mp4" type="video/mp4">
-                                    <img src="./assets/CEM.png" alt="CEM Project Screenshot">
-                                </video>
-                                <div class="video-overlay">
-                                    <i class="bi bi-play-circle-fill" aria-hidden="true"></i>
-                                    <div class="play-text">Click to play demo</div>
-                                </div>
-                                <div class="video-controls">
-                                    <div class="control-buttons">
-                                        <button class="control-btn play-pause-btn" aria-label="Play/Pause video">
-                                            <i class="bi bi-play-fill"></i>
-                                        </button>
-                                        <button class="control-btn mute-btn" aria-label="Mute/Unmute video">
-                                            <i class="bi bi-volume-mute-fill"></i>
-                                        </button>
-                                        <button class="control-btn fullscreen-btn" aria-label="Fullscreen video">
-                                            <i class="bi bi-fullscreen"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="video-progress">
-                                    <div class="video-progress-bar"></div>
-                                </div>
-                                <div class="video-loading" style="display: none;">
-                                    <i class="bi bi-arrow-clockwise"></i>
-                                </div>
-                                <div class="video-fallback" style="display: none;">
-                                    <i class="bi bi-image"></i>
-                                    <p>Video not available<br>Click to view screenshot</p>
-                                </div>
+                        <div class="project-media">
+                            <video autoplay muted loop playsinline class="project-video" poster="./assets/CEM.png">
+                                <source src="assets/videos/CEM.webm" type="video/webm">
+                                <source src="assets/videos/CEM.mp4" type="video/mp4">
+                                <img src="./assets/CEM.png" alt="CEM Project Screenshot">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="bi bi-play-circle-fill"></i>
                             </div>
                         </div>
                         <div class="div-button">
                             <a href="https://github.com/anibau/Sistema-CEM" target="_blank"> <i
-                                    class="bi bi-github"></i>View Code</a>
+                                    class="bi bi-github"></i></a>
                             <a href="https://pffront-fawn.vercel.app/" target="_blank"> <i
-                                    class="bi bi-arrow-up-right-square"></i>Live Demo</a>
+                                    class="bi bi-arrow-up-right-square"></i></a>
                         </div>
                     </div>
-                    <div class="project-info-container">
+                    <div class="div-proyect">
                         <div class="project-metrics">
                             <div class="metric">
                                 <span class="number">CHAT</span>
@@ -330,30 +328,30 @@
                             </div>
                             <div class="metric">
                                 <span class="number">99.9%</span>
-                                <span class="label">Uptime</span>
+                                <span class="label">Active Time
+                                </span>
                             </div>
                             <div class="metric">
                                 <span class="number">40%</span>
-                                <span class="label">Time Reduction</span>
+                                <span class="label">Time Reduction
+                                </span>
                             </div>
                         </div>
                         <div class="div-skills">
-                            <span>NODE</span>
                             <span>NESTJS</span>
                             <span>TYPESCRIPT</span>
-                            <span>SWAGGER</span>
                             <span>DOCKER</span>
                             <span>POSTGRESQL</span>
                             <span>NODEMAILER</span>
-                            <span>CLOUDINARY</span>
                             <span>WEBSOCKETS</span>
                         </div>
                         <div class="div-description">
-                            <h4>Mobile Equipment Repair Management System</h4>
-                            <p>We developed a web application for managing mobile device repairs, optimizing service
-                                order management and communication between customers and technicians. We implemented
-                                authentication with JWT and OAuth (Google), ensuring role-based access. We integrated
-                                automatic email notifications using Nodemailer.
+                            <h4>Mobile Equipment Repair Management System
+                            </h4>
+                            <p>We developed a web application for managing mobile device repairs,
+                                optimizing service order management and communication between customers and
+                                technicians. We implemented authentication with JWT and OAuth (Google), ensuring role-based access.
+                                We integrated automatic email notifications using Nodemailer.
                                 We implemented a real-time chat with WebSockets for customer service.
                                 We designed the system for uploading and storing images in the cloud.
                             </p>
@@ -363,25 +361,24 @@
                 </div>
                 <div class="proyects">
                     <div>
-                        <div class="project-media-container">
-                            <div class="project-media" role="button" tabindex="0"
-                                aria-label="View Computer and Technology Products Store project">
-                                <img src="./assets/proyectFrontend.png" alt="Frontend Project Screenshot"
-                                    class="project-video">
-                                <div class="video-overlay">
-                                    <i class="bi bi-image" aria-hidden="true"></i>
-                                    <div class="play-text">View project details</div>
-                                </div>
+                        <div class="project-media">
+                            <video autoplay muted loop playsinline class="project-video"
+                                poster="./assets/proyectFrontend.png">
+                                <source src="assets/videos/appInspired1.mp4" type="video/mp4">
+                                <img src="./assets/proyectFrontend.png" alt="Frontend Project Screenshot">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="bi bi-play-circle-fill"></i>
                             </div>
                         </div>
                         <div class="div-button">
                             <a href="https://github.com/anibau/FRONT-WEB-computer-store" target="_blank"> <i
-                                    class="bi bi-github"></i>View Code</a>
+                                    class="bi bi-github"></i></a>
                             <a href="https://anibau.github.io/FRONT-WEB-computer-store/" target="_blank"> <i
-                                    class="bi bi-arrow-up-right-square"></i>Live Demo</a>
+                                    class="bi bi-arrow-up-right-square"></i></a>
                         </div>
                     </div>
-                    <div class="project-info-container">
+                    <div class="div-proyect">
                         <div class="project-metrics">
                             <div class="metric">
                                 <span class="number">100%</span>
@@ -402,68 +399,42 @@
                             <span>JS</span>
                         </div>
                         <div class="div-description">
-                            <h4>Computer and Technology Products Store</h4>
-                            <p>In this project, I developed a responsive web application for a tech product store using
-                                HTML and CSS. The goal was to create an attractive, modern interface that is fully
-                                adaptable to different devices (desktop, tablet, and mobile).</p>
+                            <h4>Computer and Technology Products Store
+                            </h4>
+                            <p>In this project, I developed a responsive web application for a technology store using HTML and CSS. The goal was to create an attractive, modern interface that was fully adaptable to different devices (desktop, tablet, and mobile).
+                            </p>
 
                         </div>
                     </div>
                 </div>
                 <div class="proyects">
                     <div>
-                        <div class="project-media-container">
-                            <div class="project-media" role="button" tabindex="0"
-                                aria-label="Play ECOMMERCE REST API demo video">
-                                <video autoplay muted loop playsinline class="project-video"
-                                    poster="assets/swager-api300.png" preload="metadata">
-                                    <source src="assets/videos/api.webm" type="video/webm">
-                                    <source src="assets/videos/API-BACKEND.mp4" type="video/mp4">
-                                    <img src="assets/swager-api300.png" alt="API Project Screenshot">
-                                </video>
-                                <div class="video-overlay">
-                                    <i class="bi bi-play-circle-fill" aria-hidden="true"></i>
-                                    <div class="play-text">Click to play demo</div>
-                                </div>
-                                <div class="video-controls">
-                                    <div class="control-buttons">
-                                        <button class="control-btn play-pause-btn" aria-label="Play/Pause video">
-                                            <i class="bi bi-play-fill"></i>
-                                        </button>
-                                        <button class="control-btn mute-btn" aria-label="Mute/Unmute video">
-                                            <i class="bi bi-volume-mute-fill"></i>
-                                        </button>
-                                        <button class="control-btn fullscreen-btn" aria-label="Fullscreen video">
-                                            <i class="bi bi-fullscreen"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="video-progress">
-                                    <div class="video-progress-bar"></div>
-                                </div>
-                                <div class="video-loading" style="display: none;">
-                                    <i class="bi bi-arrow-clockwise"></i>
-                                </div>
-                                <div class="video-fallback" style="display: none;">
-                                    <i class="bi bi-image"></i>
-                                    <p>Video not available<br>Click to view screenshot</p>
-                                </div>
+                        <div class="project-media">
+                            <video autoplay muted loop playsinline class="project-video"
+                                poster="assets/swager-api300.png">
+                                <source src="assets/videos/API-BACKEND.mp4" type="video/mp4">
+                                <img src="assets/swager-api300.png" alt="API Project Screenshot">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="bi bi-play-circle-fill"></i>
                             </div>
                         </div>
                         <div class="div-button">
                             <a href="https://github.com/anibau/API-CRUD-BACKEND" target="_blank"> <i
-                                    class="bi bi-github"></i>View Code</a>
+                                    class="bi bi-github"></i></a>
                         </div>
                     </div>
-                    <div class="project-info-container">
+                    <div class="div-proyect">
                         <div class="project-metrics">
                             <div class="metric">
                                 <span class="number">1000+</span>
-                                <span class="label">API Calls</span>
+                                <span class="label">API calls
+                                </span>
                             </div>
                             <div class="metric">
                                 <span class="number">99.8%</span>
-                                <span class="label">Success Rate</span>
+                                <span class="label">Success Rate
+                                </span>
                             </div>
                             <div class="metric">
                                 <span class="number">5+</span>
@@ -471,76 +442,41 @@
                             </div>
                         </div>
                         <div class="div-skills">
-                            <span>NODE</span>
                             <span>NESTJS</span>
-                            <span>JS</span>
                             <span>TYPESCRIPT</span>
-                            <span>JWT</span>
                             <span>BCRYPT</span>
                             <span>SWAGGER</span>
                             <span>DOCKER</span>
                             <span>POSTGRESQL</span>
                         </div>
                         <div class="div-description">
-                            <h4>ECOMMERCE REST API </h4>
-                            <p>I developed a RESTful API to manage an e-commerce system, allowing CRUD operations on key
-                                resources: products, users, categories, and orders. Designed to be used by both
-                                administrators and end-users, it ensures a secure and efficient experience. This project
-                                demonstrates my ability to develop robust, secure, and scalable systems, applying best
-                                practices in Back-End development.</p>
+                            <h4>API REST ECOMMERCE</h4>
+                            <p>I developed a RESTful API to manage an e-commerce system, enabling CRUD operations on the main resources: products, users, categories, and orders. Designed to be used by both administrators and end-users, ensuring a secure and efficient experience. <br /> This project demonstrates my ability to develop robust, secure, and scalable systems, applying back-end development best practices.</p>
 
                         </div>
                     </div>
                 </div>
                 <div class="proyects">
                     <div>
-                        <div class="project-media-container">
-                            <div class="project-media" role="button" tabindex="0" aria-label="Play SPAPET demo video">
-                                <video autoplay muted loop playsinline class="project-video"
-                                    poster="assets/spaHome300.png" preload="metadata">
-                                    <source src="assets/videos/appInspired.webm" type="video/webm">
-                                    <source src="assets/videos/PETSPA.mp4" type="video/mp4">
-                                    <img src="assets/spaHome300.png" alt="SPAPET Project Screenshot">
-                                </video>
-                                <div class="video-overlay">
-                                    <i class="bi bi-play-circle-fill" aria-hidden="true"></i>
-                                    <div class="play-text">Click to play demo</div>
-                                </div>
-                                <div class="video-controls">
-                                    <div class="control-buttons">
-                                        <button class="control-btn play-pause-btn" aria-label="Play/Pause video">
-                                            <i class="bi bi-play-fill"></i>
-                                        </button>
-                                        <button class="control-btn mute-btn" aria-label="Mute/Unmute video">
-                                            <i class="bi bi-volume-mute-fill"></i>
-                                        </button>
-                                        <button class="control-btn fullscreen-btn" aria-label="Fullscreen video">
-                                            <i class="bi bi-fullscreen"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="video-progress">
-                                    <div class="video-progress-bar"></div>
-                                </div>
-                                <div class="video-loading" style="display: none;">
-                                    <i class="bi bi-arrow-clockwise"></i>
-                                </div>
-                                <div class="video-fallback" style="display: none;">
-                                    <i class="bi bi-image"></i>
-                                    <p>Video not available<br>Click to view screenshot</p>
-                                </div>
+                        <div class="project-media">
+                            <video autoplay muted loop playsinline class="project-video" poster="assets/spaHome300.png">
+                                <source src="assets/videos/PETSPA.mp4" type="video/mp4">
+                                <img src="assets/spaHome300.png" alt="SPAPET Project Screenshot">
+                            </video>
+                            <div class="video-overlay">
+                                <i class="bi bi-play-circle-fill"></i>
                             </div>
                         </div>
                         <div class="div-button">
                             <a href="https://github.com/anibau/m3-proyect" target="_blank"> <i
-                                    class="bi bi-github"></i>View Code</a>
+                                    class="bi bi-github"></i></a>
                         </div>
                     </div>
-                    <div class="project-info-container">
+                    <div class="div-proyect">
                         <div class="project-metrics">
                             <div class="metric">
                                 <span class="number">200+</span>
-                                <span class="label">Appointments</span>
+                                <span class="label">Shifts</span>
                             </div>
                             <div class="metric">
                                 <span class="number">50+</span>
@@ -548,25 +484,21 @@
                             </div>
                             <div class="metric">
                                 <span class="number">100%</span>
-                                <span class="label">User Satisfaction</span>
+                                <span class="label">Satisfaction</span>
                             </div>
                         </div>
                         <div class="div-skills">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JS</span>
                             <span>REACT</span>
                             <span>TYPESCRIPT</span>
                             <span>POSTGRESQL</span>
                             <span>EXPRESS</span>
-                            <span>NODE</span>
                         </div>
                         <div class="div-description">
-                            <h4>SPAPET - Shift Management System for a Pet Spa</h4>
-                            <p>SPAPET is a web application designed for managing appointments at a pet spa. It allows
-                                users to register, log in, manage their pets, and request appointments for services. The
-                                system features authentication, data persistence, and CRUD operations for user and pet
-                                management.</p>
+                            <h4>SPAPET - Appointment Management System for a Pet Spa
+                            </h4>
+                            <p>SPAPET is a web application designed for appointment management at a pet spa.
+                                It allows users to register, log in, manage their pets, and
+                                request appointments for services. The system features authentication, data persistence, and CRUD operations for user and pet management.</p>
 
                         </div>
                     </div>
@@ -577,34 +509,39 @@
         </section>
         <section id="about" class="about-section">
             <div class="about-div">
-                <h2 class="about-en">ABOUT</h2>
-                <h5> Back-End Developer with a Passion for Technology and Finance</h5>
-                <p>I am a passionate Back-End Developer with a strong drive for continuous learning and problem-solving
-                    through programming logic and system optimization. My background in International Business
-                    Administration and my experience as an entrepreneur have provided me with a solid foundation in
-                    leadership, management, and financial analysis—skills that I now apply to software development.
-
-                    My current focus is on building efficient, secure, and scalable solutions, leveraging my analytical
-                    skills and curiosity for technology. I specialize in Back-End development using modern technologies
-                    and agile methodologies.</p>
+                <h2>ABOUT ME</h2>
+                <h5>Back-End Developer with a Passion for Technology and Finance
+                </h5>
+                <p>I am a Back-End Developer passionate about constant learning and problem-solving
+                    through programming logic and systems optimization. My background in International Business Administration
+                    and my experience in entrepreneurship gave me a solid foundation in
+                    leadership, management, and financial analysis, skills I now apply in software development.
+                    My current focus is building efficient, secure, and scalable solutions, leveraging my
+                    analytical skills and technological curiosity. I specialize in Back-End development using
+                    modern technologies and agile methodologies.</p>
 
                 <!-- Timeline de experiencia -->
                 <div class="timeline-section">
-                    <h5>Professional Journey</h5>
+                    <h5>Professional Career
+                    </h5>
                     <div class="timeline">
                         <div class="timeline-item">
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
                                 <div class="timeline-header">
-                                    <div class="timeline-date">Jun. 2025 - Present</div>
+                                    <div class="timeline-date">Jun. 2025 - present</div>
                                     <div class="timeline-company">Kiwipay | Fintech</div>
                                 </div>
-                                <h4>Frontend Developer</h4>
+                                <h4>Frontend Developer
+                                </h4>
                                 <div class="timeline-achievements">
-                                    <h6>Achievements and responsibilities:</h6>
+                                    <h6>Achievements and responsibilities:
+                                    </h6>
                                     <ul>
-                                        <li>Optimize web performance through efficient loading strategies and good frontend and full stack development practices.</li>
-                                        <li>Collaboration with design and backend teams to ensure a smooth and consistent experience.</li>
+                                        <li>Optimize web performance through efficient loading strategies and
+                                            best front-end and full-stack development practices.</li>
+                                        <li>Collaboration with design and backend teams to ensure a smooth and consistent experience.
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -616,12 +553,16 @@
                                     <div class="timeline-date">Mar. 2025 - Jun. 2025</div>
                                     <div class="timeline-company">Patas Pirque | Foo Talent Group</div>
                                 </div>
-                                <h4>Backend Developer</h4>
+                                <h4>Backend Developer
+                                </h4>
                                 <div class="timeline-achievements">
-                                    <h6>Achievements and responsibilities:</h6>
+                                    <h6>Achievements and responsibilities:
+                                    </h6>
                                     <ul>
-                                        <li>Developed a RESTful API with secure authentication and role-based access control.</li>
-                                        <li>Designed intelligent matching logic between users and pets, improving the relevance and agility of the adoption process.</li>
+                                        <li>We developed a RESTful API with secure authentication and role-based access control.
+                                        </li>
+                                        <li>We designed intelligent matching logic between users and pets, improving the relevance and agility of the adoption process.
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -630,15 +571,18 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
                                 <div class="timeline-header">
-                                    <div class="timeline-date">Aug. 2020 - Present</div>
-                                    <div class="timeline-company">Liquor Store | Francachela</div>
+                                    <div class="timeline-date">Ago. 2020 - present</div>
+                                    <div class="timeline-company">Francachela </div>
                                 </div>
-                                <h4>Process Automation and Optimization Specialist</h4>
+                                <h4>Specialist in Automation and Process Optimization
+                                </h4>
                                 <div class="timeline-achievements">
-                                    <h6>Achievements and responsibilities:</h6>
+                                    <h6>Achievements and responsibilities:
+                                    </h6>
                                     <ul>
-                                        <li>Reduced manual errors by 20% through inventory process automation.</li>
-                                        <li>Designed interactive dashboards for sales, increasing profitability by 10% annually.</li>
+                                        <li>I reduced manual errors by 20% by automating inventory processes.</li>
+                                        <li>I designed interactive sales dashboards, increasing profitability by
+                                            10% annually.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -647,14 +591,17 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
                                 <div class="timeline-header">
-                                    <div class="timeline-date">Aug. 2023 - Present</div>
+                                    <div class="timeline-date">Ago. 2023 - present</div>
                                     <div class="timeline-company">Etoro</div>
                                 </div>
-                                <h4>Stock Market Investor | Popular Investor</h4>
+                                <h4>Stock Market Investor | Popular Investor
+                                </h4>
                                 <div class="timeline-achievements">
-                                    <h6>Achievements and responsibilities:</h6>
+                                    <h6>Achievements and responsibilities:
+                                    </h6>
                                     <ul>
-                                        <li>Automated investment strategies, achieving a 50% return in 2024 through analysis.</li>
+                                        <li>I automated investment strategies, achieving a 50% return in 2024
+                                            through analytics.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -662,38 +609,41 @@
                     </div>
                 </div>
 
-                <h5>Technologies I Work With:</h5>
+                <h5>Technologies I handle:
+                </h5>
                 <ul>
                     <li><b>Back-End:</b> JavaScript, TypeScript, NestJS, Express, Node.js</li>
                     <li><b>Front-End:</b> React, HTML, CSS, Bootstrap</li>
                     <li><b>Databases:</b> PostgreSQL, MongoDB</li>
                     <li><b>Database Management:</b> Mongoose, TypeORM</li>
-                    <li><b>Security & Authentication:</b> JWT, bcrypt, OAuth</li>
+                    <li><b>Security and Authentication:</b> JWT, bcrypt, OAuth</li>
                     <li><b>Testing:</b> Jasmine, Jest</li>
                     <li><b>Documentation:</b> Swagger</li>
-                    <li><b>Version Control:</b> Git, GitHub</li>
+                    <li><b>Version Control  :</b> Git, GitHub</li>
                     <li><b> Methodologies:</b> Agile Development, SCRUM</li>
                 </ul>
                 <div class="finanzas">
-                    <h5>My passion for finance:</h5>
-                    <p>Besides software development, long-term investments are an area that fascinates me. I manage my
-                        own portfolio on eToro, applying strategies based on fundamental analysis and
-                        diversification—skills that complement my ability to make data-driven strategic decisions. You
-                        can check my performance here:</p>
-                    <a href="https://etoro.tw/3BUVzlA">Etoro Portfolio <i class="bi bi-arrow-up-right-square"></i></a>
+                    <h5>My passion for finance   :</h5>
+                    <p>In addition to software development, long-term investing is an area that fascinates me.
+                        I manage
+                        my own portfolio on eToro, applying strategies based on fundamental analysis and
+                        diversification, skills that complement my ability to make data-driven strategic decisions.
+                        You can review my performance here:</p>
+                    <a href="https://etoro.tw/3BUVzlA">Etoro Portfolio
+                        <i class="bi bi-arrow-up-right-square"></i></a>
                 </div>
-                <h5>Professional Goal:</h5>
-                <p>I aspire to establish myself as a Back-End Developer in collaborative and innovative projects that
-                    generate real impact. I am always seeking new opportunities for learning and growth in the tech
-                    world.</p>
+                <h5>Professional Objective:
+                </h5>
+                <p>I aspire to establish myself as a Back-End Developer in collaborative and innovative projects that generate real impact. I'm always looking for new learning and growth opportunities in the tech world.</p>
                 <a href="#contact">Let's connect!</a>
             </div>
             <hr>
         </section>
         <section class="section-habilities" id="Habilities">
-            <h2 class="skills-en">SKILLS</h2>
-            <p class="skills-subtitle">Technologies I have worked with</p>
-            
+            <h2>SKILLS</h2>
+            <p class="skills-subtitle">Technologies I have worked with
+            </p>
+
             <div class="skills-container">
                 <!-- Frontend -->
                 <div class="skills-category">
@@ -760,6 +710,12 @@
                             </div>
                             <span class="skill-name">TypeScript</span>
                         </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <img src="assets/expressLogo.png" alt="Express">
+                            </div>
+                            <span class="skill-name">Express</span>
+                        </div>
                     </div>
                 </div>
 
@@ -790,6 +746,7 @@
                     <h3 class="category-title">
                         <i class="bi bi-tools"></i>
                         Tools & Testing
+
                     </h3>
                     <div class="skills-grid">
                         <div class="skill-card">
@@ -816,13 +773,19 @@
                             </div>
                             <span class="skill-name">Swagger</span>
                         </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <img src="assets/postman.png" alt="Postman">
+                            </div>
+                            <span class="skill-name">Postman</span>
+                        </div>
                     </div>
                 </div>
             </div>
             <hr>
         </section>
         <section class="section-certificates" id="Certificates">
-            <h2 class="certificates-en">CERTIFICATES</h2>
+            <h2>CERTIFICATES</h2>
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
@@ -872,34 +835,37 @@
             <hr>
         </section>
         <section id="contact" class="contact-section">
-            <h2 class="hello-en">HELLO WORLD.</h2>
+            <h2>HELLO WORLD.</h2>
 
             <!-- Call to Action Section -->
             <div class="cta-section">
-                <h3>Have a project in mind?</h3>
-                <p>I'm available for collaboration on interesting projects and ready to bring your ideas to life!</p>
+                <h3>Do you have a project in mind?
+                </h3>
+                <p>I'm available to collaborate on exciting projects and ready to bring your ideas to life!
+                </p>
                 <div class="cta-buttons">
                     <a href="mailto:miriambt678@gmail.com" class="btn-primary">
                         <i class="bi bi-envelope-at-fill"></i>
-                        Hire my services
+                        Hire services
+
                     </a>
                     <a href="#work" class="btn-secondary">
                         <i class="bi bi-eye"></i>
-                        View projects
+                        See projects
                     </a>
                 </div>
             </div>
 
             <div class="contact-section--email">
-                <p><b>🤝 Thank you for visiting my portfolio!</b> <br />
-                    I created this space with a lot of dedication and enthusiasm to showcase my passion for software
-                    development and technology. Although this portfolio is just the beginning, I plan to keep adding
-                    more features, experiences, and, of course, MANY MORE PROJECTS! <br />
+                <p><b>Thanks for visiting my portfolio!
+                </b> <br />
+                I created this space with great dedication and enthusiasm to showcase my passion for software development and technology. Although this portfolio is just the beginning, I plan to continue adding more features, experiences, and, of course, MANY MORE PROJECTS!
+                <br />
 
-                    If you have any questions about my experience, services, or simply want to chat about technology and
-                    projects, feel free to contact me. I will be delighted to meet you and respond as soon as possible.
+                If you have any questions about my experience, services, or just want to chat about technology and projects, don't hesitate to contact me. I'd be happy to meet you and get back to you as soon as possible.
+            </p>
+                <p class="contact-message">Leave me a message here...
                 </p>
-                <p class="contact-message">Leave me a message here ...</p>
                 <p class="contact-redes"><a href="https://www.linkedin.com/in/miriam-bautista-torres-b4bba01ab/"
                         target="_blank"><i class="bi bi-linkedin"></i></a><a href="https://github.com/anibau"
                         target="_blank"><i class="bi bi-github"></i></a><a href="mailto:miriambt678@gmail.com"
@@ -910,10 +876,22 @@
                 </p>
             </div>
         </section>
-        <footer>--- Developed by Miriam Bautista --- </footer>
+        <footer>--- Developed by Miriam Bautista
+            --- </footer>
         <a href="#top" class="btnBack" id="backToTopButton"><i class="bi bi-arrow-up-circle"></i></a>
     </main>
+    
+
+    <!-- Google Analytics 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-0EEWPTC3EF');
+    </script>-->
     <script src="./scripts/scripts.js"></script>
+
 
 </body>
 
